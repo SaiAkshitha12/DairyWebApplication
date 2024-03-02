@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"
+      defer
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"
+      defer
+    ></script>
+    <script src="/js/base.js"></script>
+    <link rel="stylesheet" href="/css/lib/calender/main.css" />
+    <script src="/js/lib/calender/main.min.js"></script>
+    <link rel="stylesheet" href="/css/cal.css" />
+    <script src="/js/lib/icon/lib.js"></script>
+    <link rel="stylesheet" href="/css/lib/editor/lib.css" />
+    <script src="/js/lib/editor/lib.js"></script>
+    <link rel="stylesheet" href="/css/base.css" />
+    <script src="/js/cal.js" defer></script>
+    <title>Diary - Calender</title>
+  </head>
+  <body>
+    <main user-email="<%= user.email %>">
+      <section class="side-panel">
+        <p style="color: #aaa; font-size: larger; padding-left: .3rem">Hey, <%= user.email.split("@")[0] %></p>
+        <div class="title">
+          <p>Events on</p>
+          <span class="date"><%= new Date().toDateString() %></span>
+        </div>
+        <div class="sec remainders">
+          <div class="title">
+            <span>Remainders</span>
+            <span class="icon"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <table>
+            <!-- <tr>
+              <td>
+                Apr <br />
+                19
+              </td>
+              <td>First Events SIH</td>
+            </tr>
+            <tr>
+              <td>
+                Apr <br />
+                21
+              </td>
+              <td>Final round of SIH</td>
+            </tr>
+            <tr>
+              <td>
+                Apr <br />
+                26
+              </td>
+              <td>Sudhee Volenteer Duity</td>
+            </tr>
+            <tr>
+              <td>
+                Apr <br />
+                28
+              </td>
+              <td>Cultural Fest</td>
+            </tr> -->
+          </table>
+        </div>
+        <div class="sec journal">
+          <div class="title">
+            <span>Journal</span>
+            <span class="icon"><i class="fa-solid fa-pen"></i></span>
+          </div>
+          <p>
+            to add new journal, click on pen icon...
+          </p>
+        </div>
+        <div class="sec todo">
+          <div class="title">
+            <span>Todos</span>
+            <span class="icon"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <ul>
+            <span style="color: #999">to add todo, click on plus icon...</span>
+          </ul>
+          <span class="done">Completed</span>
+          <ul><span style="color: #999;">no todos completed...</span></ul>
+        </div>
+        <div class="sec signout" onclick="window.location.assign(`/auth/sessionLogout`)">
+          <div class="title">
+            <i style="padding-right: .5rem;" class="fa-solid fa-arrow-right-from-bracket"></i>
+            Sign Out
+          </div>
+        </div>
+      </section>
+      <section id="cal"></section>
+    </main>
+    <section class="mmodal add_remainders-modal"></section>
+    <section class="mmodal journal-modal"></section>
+    <section class="mmodal todo-modal"></section>
+  </body>
+</html>
